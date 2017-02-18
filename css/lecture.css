@@ -74,10 +74,10 @@ body{
 }
 
 .catalogue{
-	width: 400px;
+	width: 500px;
 	position: relative;
 	left: 50%;
-	margin-left: -200px;
+	margin-left: -250px;
 }
 
 .catalogue li{
