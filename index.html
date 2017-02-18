@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Javascript内存模型</title>
+	<link rel="stylesheet" href="css/lecture.css">
+</head>
+<body>
+	<div class="page">
+		<div class="lecture">
+			<p class="topic">Web 前端开发模式演变历史和趋势</p>
+			<p class="text">主讲人：钟远维</p>
+			<p class="text">2016年9月25日</p>
+		</div>
+	</div>
+	<div class="page">
+		<ul class="catalogue">
+			<li>后端为主的时代</li>
+			<li>前端获取自主权的MV*时代</li>
+			<li>前端工业化生产的到来</li>
+		</ul>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">后端为主的时代</div>
+			<div class="title">初始阶段 —— 简单明快的早期时代</div>
+			<div class="figure">
+				<img src="img/web1.jpg" alt="简单明快">
+			</div>
+			<div class="text">
+				<p>特点：<p>
+				<p class="detail">不分前后端，经常 3-5 人搞定所有开发。页面由 JSP、PHP 等工程师在服务端生成，浏览器负责展现。基本上是服务端给什么浏览器就展现什么，展现的控制在 Web Server 层。</p>
+			</div>
+			<div class="text">
+				<p>问题：<p>
+				<p class="detail">1、Service 越来越多，调用关系变复杂，前端搭建本地环境不再是一件简单的事。</p>
+				<p class="detail">2、JSP 等代码的可维护性越来越差。</p>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">后端为主的时代</div>
+			<div class="title">后端的 MVC 时代</div>
+			<div class="text">
+				<p>为了降低复杂度，以后端为出发点，有了 Web Server 层的架构升级，比如 Structs、Spring MVC 等，这是后端的 MVC 时代。</p>
+			</div>
+			<div class="figure">
+				<img src="img/web2.jpg" alt="后端的 MVC 时代">
+			</div>
+			<div class="text">
+				<p>优点：<p>
+				<p class="detail">分工明确，代码维护性变得更好了。</p>
+				<p class="detail">View 层更简单干脆，还可以选择 Velocity、Freemaker 等模板。</p>
+			</div>
+			<div class="text">
+				<p>问题：<p>
+				<p class="detail">1、前端开发重度依赖开发环境。</p>
+				<p class="detail">2、前后端职责依旧纠缠不清。</p>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">后端为主的时代</div>
+			<div class="title">Ajax 带来的 SPA 时代</div>
+			<div class="figure">
+				<img src="img/web3.jpg" alt="Ajax 带来的 SPA 时代">
+			</div>
+			<div class="text">
+				<p>特点：<p>
+				<p class="detail">前后端的交互不再只是完整的 HTML ，还可以是 HTML 片段， JSON 数据。</p>
+				<p class="detail">出现了好多工具类库， jQuery / Prototype / Dojo / underscore。</p>
+			</div>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">前端获取自主权的MV*时代</div>
+			<div class="title">前端框架百花齐放</div>
+			<div class="text">
+				<p>除了 Backbone ，还涌现出 EmberJS，KnockoutJS，AngularJS，Vue.js，ReactJS等MV*框架。<p>
+			</div>
+			<div class="figure">
+				<img src="img/web4.jpg" alt="前端框架百花齐放">
+			</div>
+			<div class="text">
+				<p>特点：<p>
+				<p class="detail">前后端职责很清晰。</p>
+				<p class="detail">前端开发的复杂度可控。</p>
+				<p class="detail">部署相对独立，产品体验可以快速改进。</p>
+			</div>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">前端工业化生产</div>
+			<div class="title">基于 Node 的前端开发</div>
+			<div class="text">
+				<p>开发工具：</p>
+				<p class="detail">构建工具：grunt、 browserify、 gulp、 webpack、 jspm。</p>
+				<p class="detail">包管理工具：components、 bower、 spm、 npm。</p>
+				<p class="detail">测试、监控：QUnit、 Selenium、 Jshint、 WebDriverTest。</p>
+			</div>
+			<div class="text">
+				<p>全栈开发模式：</p>
+				<p class="detail">对前端来说，两个 UI 层各司其职：</p>
+				<p class="detail">1、Front-end UI layer 处理浏览器层的展现逻辑。通过 CSS 渲染样式，通过 JavaScript 添加交互功能，HTML 的生成也可以放在这层，具体看应用场景。</p>
+				<p class="detail">2、Back-end UI layer 处理路由、模板、数据获取、cookie 等。</p>
+			</div>	
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject"><br>谢谢大家，远维的部分讲完了！</div>
+			<div class="title">
+				&nbsp;
+			</div>
+			<div class="title">
+				现在，请聆听欧主管畅聊人生。
+			</div>
+		</div>
+	</div>
+
+	<div class="prev" id="prev">&lt;</div>
+	<div class="next" id="next">&gt;</div>
+</body>
+<script src="js/lecture.js"></script>
+
+
+</html>
