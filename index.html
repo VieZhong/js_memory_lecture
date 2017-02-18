@@ -8,37 +8,90 @@
 <body>
 	<div class="page">
 		<div class="lecture">
-			<p class="topic">Web 前端开发模式演变历史和趋势</p>
+			<p class="topic">Javascript内存模型</p>
 			<p class="text">主讲人：钟远维</p>
-			<p class="text">2016年9月25日</p>
+			<p class="text">2017年2月19日</p>
 		</div>
 	</div>
 	<div class="page">
 		<ul class="catalogue">
-			<li>后端为主的时代</li>
-			<li>前端获取自主权的MV*时代</li>
-			<li>前端工业化生产的到来</li>
+			<li>Javascript内存分配</li>
+			<li>Javascript对象原型的内存模型</li>
+			<li>http://www.2cto.com/kf/201506/409654.html</li>
+			<li>http://blog.csdn.net/feiying008/article/details/52840944</li>
+			<li>http://blog.csdn.net/u010425776/article/details/53617292</li>
 		</ul>
 	</div>
 	<div class="page">
 		<div class="content">
-			<div class="subject">后端为主的时代</div>
-			<div class="title">初始阶段 —— 简单明快的早期时代</div>
-			<div class="figure">
-				<img src="img/web1.jpg" alt="简单明快">
+			<div class="subject">Javascript内存分配</div>
+			<div class="title">Javascript数据类型</div>
+			<div class="text">
+				<p>基本数据类型&lt;6种&gt;：<p>
+				<p class="detail">Undefined、Null、Boolean、Number、String、Symbol</p>
 			</div>
 			<div class="text">
-				<p>特点：<p>
-				<p class="detail">不分前后端，经常 3-5 人搞定所有开发。页面由 JSP、PHP 等工程师在服务端生成，浏览器负责展现。基本上是服务端给什么浏览器就展现什么，展现的控制在 Web Server 层。</p>
-			</div>
-			<div class="text">
-				<p>问题：<p>
-				<p class="detail">1、Service 越来越多，调用关系变复杂，前端搭建本地环境不再是一件简单的事。</p>
-				<p class="detail">2、JSP 等代码的可维护性越来越差。</p>
+				<p>复杂数据类型：<p>
+				<p class="detail">Object</p>
+				<p class="detail">Function、Map、Set、...</p>
 			</div>		
 		</div>
 	</div>
 	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript内存分配</div>
+			<div class="title">存储位置</div>
+			<div class="text">
+				<p>栈：<p>
+				<p class="detail">基本数据类型：Undefined、Null、Boolean、Number、String、Symbol</p>
+				<p class="detail">复杂数据类型的引用(指针)</p>
+			</div>
+			<div class="text">
+				<p>堆：<p>
+				<p class="detail">复杂数据类型：Object...</p>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript内存分配</div>
+			<div class="title">存储位置</div>
+			<div class="text">
+				<p>例子<p>
+				<p class="detail">var num = 520;</p>
+				<p class="detail">var bol = true;</p>
+				<p class="detail">var str = 'javascript';</p>
+				<p class="detail">var obj = new Object();</p>
+				<p class="detail">var arr = ['a', 'b', 'c'];</p>
+			</div>
+			<div class="figure">
+				<img src="img/memory1.png" alt="内存模型1">
+			</div>	
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript内存分配</div>
+			<div class="title">存储位置</div>
+			<div class="text">
+				<p>例子<p>
+				<p class="detail">
+					<pre>
+function Person(name, age) {
+	this.name = name;
+	this.age = age;
+}
+					</pre>
+				</p>
+				<p class="detail">var person = new Person('zyw', '18');</p>
+			</div>
+			<div class="figure">
+				<img src="img/memory1.png" alt="内存模型2">
+			</div>	
+		</div>
+	</div>
+
+	<!-- <div class="page">
 		<div class="content">
 			<div class="subject">后端为主的时代</div>
 			<div class="title">后端的 MVC 时代</div>
@@ -122,7 +175,7 @@
 				现在，请聆听欧主管畅聊人生。
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="prev" id="prev">&lt;</div>
 	<div class="next" id="next">&gt;</div>
