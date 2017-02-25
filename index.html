@@ -10,16 +10,13 @@
 		<div class="lecture">
 			<p class="topic">Javascript内存模型</p>
 			<p class="text">主讲人：钟远维</p>
-			<p class="text">2017年2月19日</p>
+			<p class="text">2017年2月26日</p>
 		</div>
 	</div>
 	<div class="page">
 		<ul class="catalogue">
 			<li>Javascript内存分配</li>
 			<li>Javascript对象原型的内存模型</li>
-			<li>http://www.2cto.com/kf/201506/409654.html</li>
-			<li>http://blog.csdn.net/feiying008/article/details/52840944</li>
-			<li>http://blog.csdn.net/u010425776/article/details/53617292</li>
 		</ul>
 	</div>
 	<div class="page">
@@ -33,7 +30,7 @@
 			<div class="text">
 				<p>复杂数据类型：<p>
 				<p class="detail">Object</p>
-				<p class="detail">Function、Map、Set、...</p>
+				<p class="detail">Function、Array、Map、Set、...</p>
 			</div>		
 		</div>
 	</div>
@@ -84,68 +81,132 @@ function Person(name, age) {
 				<p class="detail">var person = new Person('zyw', '18');</p>
 			</div>
 			<div class="figure">
-				<img src="img/memory1.png" alt="内存模型2">
+				<img src="img/memory2.png" alt="内存模型2">
 			</div>	
 		</div>
 	</div>
-
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript对象原型的内存模型</div>
+			<div class="title">什么是JS对象？</div>
+			<div class="text">
+				<p>是无序属性的集合，类似于Java中的Map，由键值对构成。</p>
+				<pre class="detail">
+var personA = {
+	name: 'A',
+	info: {
+		gender: 'male',
+		habit: ['reading', 'sport']
+	},
+	getName: funciton() {
+		return this.name;
+	}
+}
+				</pre>
+			</div>	
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript对象原型的内存模型</div>
+			<div class="title">通过构造函数创建对象</div>
+			<div class="text">
+				<p>还是那个例子：<p>
+				<pre class="detail">
+function Person(name, age) {
+	this.name = name;
+	this.age = age;
+}
+				</pre>
+			</div>
+			<div class="text">
+				<p>构造一个person对象：<p>
+				<pre class="detail">
+var person = new Person('小明', 20);
+//	Person {
+//		name: 'name',
+//		age: 20,
+//		__proto__: [[Object]]
+//	}
+				</pre>
+			</div>	
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript对象原型的内存模型</div>
+			<div class="title">构造函数 的 原型（prototype）</div>
+			<div class="text">
+				<p>通过构造函数创建的对象，会"继承"构造函数原型的属性。<p>
+			</div>
+			<div class="text">
+				<p>重写构造函数Person原型：<p>
+				<pre class="detail">
+Person.prototype = {
+	addr: 'HUST',
+	getAddr: function() {
+		return this.addr;
+	},
+	getAge: function() {
+		return this.age;
+	}
+};
+				</pre>
+				<p>内存模型：<p>
+			</div>	
+			<div class="figure">
+				<img src="img/prototype1.png" alt="prototype模型">
+			</div>
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript对象原型的内存模型</div>
+			<div class="title">构造函数 的 原型（prototype）</div>
+			<div class="text">
+				<p>通过构造函数创建的对象，会"继承"构造函数原型的属性。<p>
+			</div>
+			<div class="text">
+				<p>重写构造函数Person原型：<p>
+				<pre class="detail">
+Person.prototype = {
+	addr: 'HUST',
+	getAddr: function() {
+		return this.addr;
+	},
+	getAge: function() {
+		return this.age;
+	}
+};
+				</pre>
+				<p>创建对象：<p>
+				<pre class="detail">
+var person = new Person('小明', 20);
+person.name;		//'小明'
+person.addr;    	//'HUST'
+person.getAddr();	//'HUST'
+person.getName; 	//Uncaught TypeError
+person.getAge();	//20
+				</pre>
+			</div>		
+		</div>
+	</div>
+	<div class="page">
+		<div class="content">
+			<div class="subject">Javascript对象原型的内存模型</div>
+			<div class="title">对象基于原型链的内存模型</div>
+			<div class="text">
+				<p>通过构造函数创建对象后，那么内存就会存在三个对象：<p>
+				<p>1.构造函数本身的函数对象(Person)<p>
+				<p>2.构造函数的原型对象(Person.protype)<p>
+				<p>3.构造函数的实例对象(person)<p>
+			</div>
+			<div class="figure">
+				<img src="img/prototype2.png" alt="对象基于原型链的模型">
+			</div>
+		</div>
+	</div>
 	<!-- <div class="page">
-		<div class="content">
-			<div class="subject">后端为主的时代</div>
-			<div class="title">后端的 MVC 时代</div>
-			<div class="text">
-				<p>为了降低复杂度，以后端为出发点，有了 Web Server 层的架构升级，比如 Structs、Spring MVC 等，这是后端的 MVC 时代。</p>
-			</div>
-			<div class="figure">
-				<img src="img/web2.jpg" alt="后端的 MVC 时代">
-			</div>
-			<div class="text">
-				<p>优点：<p>
-				<p class="detail">分工明确，代码维护性变得更好了。</p>
-				<p class="detail">View 层更简单干脆，还可以选择 Velocity、Freemaker 等模板。</p>
-			</div>
-			<div class="text">
-				<p>问题：<p>
-				<p class="detail">1、前端开发重度依赖开发环境。</p>
-				<p class="detail">2、前后端职责依旧纠缠不清。</p>
-			</div>		
-		</div>
-	</div>
-	<div class="page">
-		<div class="content">
-			<div class="subject">后端为主的时代</div>
-			<div class="title">Ajax 带来的 SPA 时代</div>
-			<div class="figure">
-				<img src="img/web3.jpg" alt="Ajax 带来的 SPA 时代">
-			</div>
-			<div class="text">
-				<p>特点：<p>
-				<p class="detail">前后端的交互不再只是完整的 HTML ，还可以是 HTML 片段， JSON 数据。</p>
-				<p class="detail">出现了好多工具类库， jQuery / Prototype / Dojo / underscore。</p>
-			</div>
-			</div>		
-		</div>
-	</div>
-	<div class="page">
-		<div class="content">
-			<div class="subject">前端获取自主权的MV*时代</div>
-			<div class="title">前端框架百花齐放</div>
-			<div class="text">
-				<p>除了 Backbone ，还涌现出 EmberJS，KnockoutJS，AngularJS，Vue.js，ReactJS等MV*框架。<p>
-			</div>
-			<div class="figure">
-				<img src="img/web4.jpg" alt="前端框架百花齐放">
-			</div>
-			<div class="text">
-				<p>特点：<p>
-				<p class="detail">前后端职责很清晰。</p>
-				<p class="detail">前端开发的复杂度可控。</p>
-				<p class="detail">部署相对独立，产品体验可以快速改进。</p>
-			</div>
-			</div>		
-		</div>
-	</div>
-	<div class="page">
 		<div class="content">
 			<div class="subject">前端工业化生产</div>
 			<div class="title">基于 Node 的前端开发</div>
@@ -162,23 +223,21 @@ function Person(name, age) {
 				<p class="detail">2、Back-end UI layer 处理路由、模板、数据获取、cookie 等。</p>
 			</div>	
 		</div>
-	</div>
+	</div> -->
 	<div class="page">
 		<div class="content">
-			<div class="subject"><br>谢谢大家，远维的部分讲完了！</div>
+			<div class="subject"><br>谢谢大家！</div>
 			<div class="title">
 				&nbsp;
 			</div>
 			<div class="title">
-				现在，请聆听欧主管畅聊人生。
+				Q&A
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<div class="prev" id="prev">&lt;</div>
 	<div class="next" id="next">&gt;</div>
 </body>
 <script src="js/lecture.js"></script>
-
-
 </html>
